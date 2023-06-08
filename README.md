@@ -4,10 +4,9 @@ The power and complexity of **if** in Zig
 
 ---
 
-Ed Yu
+Ed Yu ([@edyu](https://github.com/edyu) on Github and
+[@edyu](https://twitter.com/edyu) on Twitter)
 Jun.06.2023
-[@edyu](https://github.com/edyu) on Github
-[@edyu](https://twitter.com/edyu) on Twitter
 
 ---
 
@@ -23,7 +22,7 @@ However, due to the power of the language, some of the syntax are not obvious
 for those first coming into the language. I’m actually one such person.
 When I was thrown into Zig (by choice) for my current project, I didn’t think
 twice but Zig happens to overload the simple **if** statement for many of the
-new concepts that underly Zig’s power. Today we’ll explore the **if** statement
+new concepts that underlie Zig’s power. Today we’ll explore the **if** statement
 in Zig and by the end hopefully you’ll have a better grasp of the language.
 
 ## Basic _if_ statement
@@ -45,7 +44,8 @@ if (true) {
 }
 ```
 
-So the above code will always print **"hello Ed"** because the condition is true.
+So the above code will always print **"hello Ed"** because the condition is
+true.
 The following code will always print **"hello world"** because the condition is
 false.
 
@@ -85,15 +85,15 @@ any `if` statement as the condition.
 
 ## Error-handling _if_ statement
 
-Ok, let's now introduce error in the function. One of the coolest part of Zig
-is how it handles errors. Errors are just regular return type mostly. The _if_
+Ok, let's now introduce an error in the function. One of the coolest part of Zig
+is how it handles errors. Errors are just regular return types mostly. The _if_
 statement is overloaded for error handling. The main difference is that now
 you can use capture the error using |err| in the _else_ expression.
 
 ```zig
 const Error = error { WrongPerson };
 
-// you have to declare your function will return error by using ! in front of
+// you have to declare your function will return an error by using ! in front of
 // the return type which actually signals that your function will return an
 // error union (union of error with your actual return type)
 fn dudeIsEdOrError(name: []const u8) !void {
@@ -164,9 +164,9 @@ fn sayHelloEdish(name: []const u8) void {
 ## Optional _if_ statement
 
 Another cool thing that Zig introduced is optional. Optional is similar to how
-many other languages handles the idea of maybe. If optional is used in the
+many other languages handle the idea of maybe. If optional is used in the
 return type it designates that a function may or may not return a value.
-For many languges optional is similar to how a variable can either have a value
+For many languages optional is similar to how a variable can either have a value
 or be _null_. Zig made it so that you have to explicitly declare a variable
 optional before you can assign _null_ to a variable. The way to designate
 something optional is to use the question mark _?_.
@@ -207,7 +207,7 @@ fn sayHelloMaybeEd(name: []const u8) void {
 So now you have boolean, optional, and error that can all be handled by if
 statements, what if you have all three? How would you parse that?
 
-Assuming you have the folowing function:
+Assuming you have the following function:
 
 ```zig
 // Ed or Edward are ok but definitely not Eddie, anyone else don't care
@@ -274,7 +274,7 @@ const notEd = dudeIsEdishOrError("Not Ed") catch false;
 
 ## The End
 
----
+## ![Zig Logo](https://ziglang.org/zero.svg)
 
 Special thanks to Rene [@renerocksai](https://github.com/renerocksai) for
 helping out on my zig questions.
