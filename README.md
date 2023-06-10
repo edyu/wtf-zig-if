@@ -14,16 +14,22 @@ Jun.06.2023
 
 ## Introduction
 
-[Zig](https://ziglang.org) is a modern system programming language and although
-it claims to a be a **better C**, many people who initially didn't need system
-programming were attracted to it due to the simplicity of its syntax compared
-to alternatives such as _C++_ or _Rust_.
+[**Zig**](https://ziglang.org) is a modern system programming language and
+although it claims to a be a **better C**, many people who initially didn't
+need system programming were attracted to it due to the simplicity of its
+syntax compared to alternatives such as **C++** or **Rust**.
+
 However, due to the power of the language, some of the syntax are not obvious
-for those first coming into the language. I’m actually one such person.
-When I was thrown into Zig (by choice) for my current project, I didn’t think
-twice but Zig happens to overload the simple **if** statement for many of the
-new concepts that underlie Zig’s power. Today we’ll explore the **if** statement
-in Zig and by the end hopefully you’ll have a better grasp of the language.
+for those first coming into the language. I was actually one such person.
+
+When I was thrown into **Zig** (by choice) for my current project, I didn’t
+think twice but as my code becomes more complex, I started to be confused in
+the simplest programming construct--_if_ statement.
+
+The reason is that **Zig** happens to overload the simple _if_ statement for
+many of the new concepts that underlie **Zig**’s power. Today we’ll explore the
+_if_ statement in **Zig** and by the end hopefully you’ll have a better grasp
+of the language.
 
 ## Basic _if_ statement
 
@@ -46,6 +52,7 @@ if (true) {
 
 So the above code will always print **"hello Ed"** because the condition is
 true.
+
 The following code will always print **"hello world"** because the condition is
 false.
 
@@ -85,10 +92,11 @@ any `if` statement as the condition.
 
 ## Error-handling _if_ statement
 
-Ok, let's now introduce an error in the function. One of the coolest part of Zig
-is how it handles errors. Errors are just regular return types mostly. The _if_
-statement is overloaded for error handling. The main difference is that now
-you can use capture the error using |err| in the _else_ expression.
+Ok, let's now introduce an error in the function. One of the coolest part of
+**Zig** is how it handles errors. Errors are just regular return types mostly.
+
+The _if_ statement is overloaded for error handling. The main difference is
+that now you can **capture** the error using _|err|_ in the _else_ expression.
 
 ```zig
 const Error = error { WrongPerson };
@@ -129,7 +137,8 @@ fn sayHelloIgnoreError(name: []const u8) void {
 ## Mixing boolean with error-handling _if_ statement
 
 So, how do you mix boolean and error together in an _if_ statement?
-You can use capture the boolean in the _if_ expression in addition to capturing
+
+You can capture the boolean in the _if_ expression just as you were capturing
 the error in the _else_ expression.
 
 ```zig
@@ -163,16 +172,18 @@ fn sayHelloEdish(name: []const u8) void {
 
 ## Optional _if_ statement
 
-Another cool thing that Zig introduced is optional. Optional is similar to how
-many other languages handle the idea of maybe. If optional is used in the
+Another cool thing that **Zig** introduced is optional. Optional is similar to
+how many other languages handle the idea of maybe. If optional is used in the
 return type it designates that a function may or may not return a value.
+
 For many languages optional is similar to how a variable can either have a value
-or be _null_. Zig made it so that you have to explicitly declare a variable
+or be _null_. **Zig** made it so that you have to explicitly declare a variable
 optional before you can assign _null_ to a variable. The way to designate
 something optional is to use the question mark _?_.
 
-Interestingly, Zig decided to overload _if_ statement once again to handle
+Interestingly, **Zig** decided to overload _if_ statement once again to handle
 the optional.
+
 To determine whether you have a value or or in the _if_ statement, you have to
 use capture again but this time you use it in the _if_ expression instead of
 the _else_ expression to unwrap the optional value.
@@ -204,7 +215,7 @@ fn sayHelloMaybeEd(name: []const u8) void {
 
 ## Optional _if_ statement with error-handling
 
-So now you have boolean, optional, and error that can all be handled by if
+So now you have boolean, optional, and error that can all be handled by _if_
 statements, what if you have all three? How would you parse that?
 
 Assuming you have the following function:
@@ -252,11 +263,15 @@ fn sayHelloMaybeEdOrError(name: []const u8) void {
 
 ## Bonus
 
-I lied; well, what I meant is that _if_ can also be used as an expression so
-that you can assign the return value of _if_ expression to a variable.
+I lied; well, what I meant is that _if_ can also be used as an **expression**
+not just a **statement** so that you can assign the return value of _if_
+expression to a variable.
+
 It's functionally similar to the ternary _?:_ expression in many languages
-such as C.
-However, _if_ expression has many restrictions compared to the _if_ statement.
+such as **C**.
+
+However, _if_ expression has many restrictions compared to the _if_
+statement so use it only as a shorthand equivalent to ternary _?:_.
 
 ```zig
 // greeting will be "hello"
@@ -268,8 +283,8 @@ respectively for simple cases where you don't have to unwrap the value using
 _if_ statements.
 
 ```zig
-const isEd = dudeIsMaybeEd("Not Ed") orelse false;
-const notEd = dudeIsEdishOrError("Not Ed") catch false;
+const is_ed = dudeIsMaybeEd("Ed") orelse false;
+const not_ed = dudeIsEdishOrError("Not Ed") catch false;
 ```
 
 ## The End
@@ -277,4 +292,4 @@ const notEd = dudeIsEdishOrError("Not Ed") catch false;
 ## ![Zig Logo](https://ziglang.org/zero.svg)
 
 Special thanks to Rene [@renerocksai](https://github.com/renerocksai) for
-helping out on my zig questions.
+helping out on my **Zig** questions.
