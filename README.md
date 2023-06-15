@@ -289,6 +289,8 @@ const not_ed = dudeIsEdishOrError("Not Ed") catch false;
 
 ## The End
 
+You can find the code [here](https://github.com/edyu/wtf-zig-if/blob/master/testif.zig).
+
 ## ![Zig Logo](https://ziglang.org/zero.svg)
 
 Special thanks to Rene [@renerocksai](https://github.com/renerocksai) for
