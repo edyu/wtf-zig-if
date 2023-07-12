@@ -14,12 +14,12 @@ Jun.06.2023
 
 ## Introduction
 
-[**Zig**](https://ziglang.org) is a modern system programming language and
+[**Zig**](https://ziglang.org) is a modern systems programming language and
 although it claims to a be a **better C**, many people who initially didn't
-need system programming were attracted to it due to the simplicity of its
+need systems programming were attracted to it due to the simplicity of its
 syntax compared to alternatives such as **C++** or **Rust**.
 
-However, due to the power of the language, some of the syntax are not obvious
+However, due to the power of the language, some of the syntaxes are not obvious
 for those first coming into the language. I was actually one such person.
 
 When I was thrown into **Zig** (by choice) for my current project, I didn’t
@@ -87,12 +87,12 @@ fn sayHello(name: []const u8) void {
 }
 ```
 
-Because `sayHello` will return a boolean, then you can use the function in
+Because `dudeIsEd` will return a boolean, then you can use the function in
 any `if` statement as the condition.
 
 ## Error-handling _if_ statement
 
-Ok, let's now introduce an error in the function. One of the coolest part of
+Ok, let's now introduce an error in the function. One of the coolest parts of
 **Zig** is how it handles errors. Errors are just regular return types mostly.
 
 The _if_ statement is overloaded for error handling. The main difference is
@@ -184,7 +184,7 @@ something optional is to use the question mark _?_.
 Interestingly, **Zig** decided to overload _if_ statement once again to handle
 the optional.
 
-To determine whether you have a value or or in the _if_ statement, you have to
+To determine whether you have a value or not in the _if_ statement, you have to
 use capture again but this time you use it in the _if_ expression instead of
 the _else_ expression to unwrap the optional value.
 
